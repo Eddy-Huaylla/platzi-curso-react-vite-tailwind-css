@@ -1,11 +1,11 @@
-import './App.css'
+import { Router } from './routers/Router';
+
+import './App.css';
 
 function App () {
 	return (
-		<>
-			<h1 className='bg-red-500'>Hola mundo</h1>
-		</>
-	)
+		<Router />
+	);
 }
 
-export default App
+export default App;

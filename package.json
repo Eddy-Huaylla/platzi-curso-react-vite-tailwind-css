@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
@@ -24,33 +25,49 @@
     "vite": "^4.3.9"
   },
   "eslintConfig": {
-    "extends" : "./node_modules/standard/eslintrc.json",
-	"rules": {
-		"space-in-parens" : [
-			"error", "always"
-		],
-		"no-tabs" : [
-			"error",
-			{
-				"allowIndentationTabs" : true
-			}
-		],
-		"indent" : [
-			"error",
-			"tab",
-			{
-				"FunctionDeclaration": {
-					"body": 1
-				},
-				"offsetTernaryExpressions": false
-			}
-		],
-		"react/jsx-indent": [
-			"error", "tab"
-		],
-     	"react/jsx-indent-props": [
-			"error", "tab"
-		]
-	}
+    "extends": "./node_modules/standard/eslintrc.json",
+    "rules": {
+      "space-in-parens": [
+        "error",
+        "always"
+      ],
+      "no-tabs": [
+        "error",
+        {
+          "allowIndentationTabs": true
+        }
+      ],
+      "indent": [
+        "error",
+        "tab",
+        {
+          "FunctionDeclaration": {
+            "body": 1
+          },
+          "offsetTernaryExpressions": false
+        }
+      ],
+      "react/jsx-indent": [
+        "error",
+        "tab"
+      ],
+      "react/jsx-indent-props": [
+        "error",
+        "tab"
+      ],
+      "react/jsx-curly-spacing": [
+        1,
+        {
+          "when": "always",
+          "spacing": {
+            "objectLiterals": "never"
+          }
+        }
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
   }
 }
