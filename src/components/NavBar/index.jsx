@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { NAV_CATEGORIES, NAV_RIGHT } from '../../utils/constants';
+import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 
 const NavBar = () => {
 	const textDecoration = 'underline underline-offset-4';
 	const textDecorationHover = 'hover:underline hover:underline-offset-4';
+
+	const { getQuantityCart } = useContext( ShoppingCartContext );
 
 	return (
 		<nav className='flex justify-between items-center w-full py-5 px-8 text-sm font-light max-w-screen-2xl'>
@@ -53,6 +56,10 @@ const NavBar = () => {
 									className={ ( { isActive } ) => isActive ? `${ textDecoration } ${ textDecorationHover }` : `${ textDecorationHover }` }
 								>
 									{ nav.text }
+
+									{ nav.to === '/shoppcar' && (
+										getQuantityCart()
+									)}
 								</NavLink>
 							</li>
 						);
