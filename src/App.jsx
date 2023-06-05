@@ -9,7 +9,7 @@ import { Layout } from './components/Layout';
 function App () {
 	return (
 		<BrowserRouter>
-			<header className='sticky top-0 shadow border-b bg-white'>
+			<header className='sticky top-0 shadow border-b bg-white flex justify-center z-10'>
 				<NavBar />
 			</header>
 			<Layout>

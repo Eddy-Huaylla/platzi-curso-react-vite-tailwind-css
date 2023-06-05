@@ -53,3 +53,5 @@ export const NAV_RIGHT = [
 		className: ''
 	}
 ];
+
+export const API_PLATZI_URL = 'https://api.escuelajs.co/api/v1/products';

@@ -7,7 +7,7 @@ const NavBar = () => {
 	const textDecorationHover = 'hover:underline hover:underline-offset-4';
 
 	return (
-		<nav className='flex justify-between items-center z-10 w-full py-5 px-8 text-sm font-light'>
+		<nav className='flex justify-between items-center w-full py-5 px-8 text-sm font-light max-w-screen-2xl'>
 			<ul className='flex items-center gap-3'>
 				<li>
 					<NavLink
