@@ -7,6 +7,7 @@ const defaultState = [];
 export const ShoppingCartProvider = ( { children } ) => {
 	const [ cart, setCart ] = useState( defaultState );
 	const [ isOpenCartDetail, setIsOpenCartDetail ] = useState( false );
+	const [ isOpenCart, setIsOpenCart ] = useState( false );
 	const [ cartDetail, setCartDetail ] = useState( {} );
 
 	const openCartDetail = ( product ) => {
@@ -54,7 +55,9 @@ export const ShoppingCartProvider = ( { children } ) => {
 					getQuantityCart,
 					isOpenCartDetail,
 					openCartDetail,
-					closeCartDetail
+					closeCartDetail,
+					isOpenCart,
+					setIsOpenCart
 				}
 			}
 		>

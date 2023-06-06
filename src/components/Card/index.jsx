@@ -2,8 +2,15 @@ import React, { useContext } from 'react';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 
 const Card = ( { product } ) => {
-	const { addItem, openCartDetail } = useContext( ShoppingCartContext );
+	const { addItem, openCartDetail, setIsOpenCart } = useContext( ShoppingCartContext );
 	const { title, price, images, category } = product;
+
+	const handleAddToCart = ( e ) => {
+		e.stopPropagation();
+		addItem( product );
+		setIsOpenCart( true );
+	};
+
 	return (
 		<div
 			className='flex flex-col rounded-lg overflow-hidden border border-gray-400 pb-2 cursor-pointer'
@@ -29,7 +36,7 @@ const Card = ( { product } ) => {
 				</div>
 				<button
 					className='bg-black text-white rounded-lg w-full py-2 font-medium hover:bg-black/95'
-					onClick={ () => addItem( product ) }
+					onClick={ ( e ) => handleAddToCart( e ) }
 				>
 					Add to Cart 🛒
 				</button>

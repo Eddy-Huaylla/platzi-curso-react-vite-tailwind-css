@@ -1,11 +1,12 @@
 import { BrowserRouter } from 'react-router-dom';
+import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
+
 import { Router } from './routers/Router';
 
 import { NavBar } from './components/NavBar';
+import { Layout } from './components/Layout';
 
 import './App.css';
-import { Layout } from './components/Layout';
-import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 
 function App () {
 	return (
