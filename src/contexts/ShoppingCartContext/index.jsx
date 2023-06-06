@@ -6,6 +6,18 @@ const defaultState = [];
 
 export const ShoppingCartProvider = ( { children } ) => {
 	const [ cart, setCart ] = useState( defaultState );
+	const [ isOpenCartDetail, setIsOpenCartDetail ] = useState( false );
+	const [ cartDetail, setCartDetail ] = useState( {} );
+
+	const openCartDetail = ( product ) => {
+		setCartDetail( product );
+		setIsOpenCartDetail( true );
+	};
+
+	const closeCartDetail = () => {
+		setCartDetail( {} );
+		setIsOpenCartDetail( false );
+	};
 
 	const addItem = ( product ) => {
 		const productInCartIndex = cart.findIndex( item => item.id === product.id );
@@ -33,7 +45,19 @@ export const ShoppingCartProvider = ( { children } ) => {
 	};
 
 	return (
-		<ShoppingCartContext.Provider value={{ cart, addItem, getQuantityCart }}>
+		<ShoppingCartContext.Provider
+			value={
+				{
+					cart,
+					cartDetail,
+					addItem,
+					getQuantityCart,
+					isOpenCartDetail,
+					openCartDetail,
+					closeCartDetail
+				}
+			}
+		>
 			{ children }
 		</ShoppingCartContext.Provider>
 	);

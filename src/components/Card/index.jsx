@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 
 const Card = ( { product } ) => {
-	const { addItem } = useContext( ShoppingCartContext );
+	const { addItem, openCartDetail } = useContext( ShoppingCartContext );
 	const { title, price, images, category } = product;
 	return (
-		<div className='flex flex-col rounded-lg overflow-hidden border border-gray-400 pb-2'>
+		<div
+			className='flex flex-col rounded-lg overflow-hidden border border-gray-400 pb-2 cursor-pointer'
+			onClick={ () => openCartDetail( product ) }
+		>
 			<figure className='relative w-full'>
 				<img
 					src={ images[0] }
