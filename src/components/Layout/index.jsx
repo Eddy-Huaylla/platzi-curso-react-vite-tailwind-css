@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 import { Drawer } from '../Drawer';
+import { ListOrderCart } from '../ListOrderCart';
 
 const Layout = ( { children } ) => {
 	const { isOpenCart, setIsOpenCart } = useContext( ShoppingCartContext );
@@ -13,7 +14,7 @@ const Layout = ( { children } ) => {
 				isOpen={ isOpenCart }
 				onClose={ () => setIsOpenCart( false ) }
 			>
-				<h1>Hola Carrito</h1>
+				<ListOrderCart />
 			</Drawer>
 		</main>
 	);

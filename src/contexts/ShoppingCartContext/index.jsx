@@ -36,6 +36,12 @@ export const ShoppingCartProvider = ( { children } ) => {
 		setCart( [ ...cart, productTem ] );
 	};
 
+	const removeItem = ( id ) => {
+		const productFilter = cart.filter( item => item.id !== id );
+
+		setCart( productFilter );
+	};
+
 	const getQuantityCart = () => {
 		let quantity = 0;
 		cart.forEach( item => {
@@ -52,6 +58,7 @@ export const ShoppingCartProvider = ( { children } ) => {
 					cart,
 					cartDetail,
 					addItem,
+					removeItem,
 					getQuantityCart,
 					isOpenCartDetail,
 					openCartDetail,
