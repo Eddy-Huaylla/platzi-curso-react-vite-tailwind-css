@@ -51,6 +51,10 @@ export const ShoppingCartProvider = ( { children } ) => {
 		return quantity;
 	};
 
+	const getTotalPrice = () => {
+		return cart.reduce( ( sum, product ) => sum + ( product.price * product.quantity ), 0 );
+	};
+
 	return (
 		<ShoppingCartContext.Provider
 			value={
@@ -60,6 +64,7 @@ export const ShoppingCartProvider = ( { children } ) => {
 					addItem,
 					removeItem,
 					getQuantityCart,
+					getTotalPrice,
 					isOpenCartDetail,
 					openCartDetail,
 					closeCartDetail,
