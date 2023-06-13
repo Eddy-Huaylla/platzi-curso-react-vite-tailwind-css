@@ -42,6 +42,10 @@ export const ShoppingCartProvider = ( { children } ) => {
 		setCart( productFilter );
 	};
 
+	const removeAll = () => {
+		setCart( defaultState );
+	};
+
 	const getQuantityCart = () => {
 		let quantity = 0;
 		cart.forEach( item => {
@@ -63,6 +67,7 @@ export const ShoppingCartProvider = ( { children } ) => {
 					cartDetail,
 					addItem,
 					removeItem,
+					removeAll,
 					getQuantityCart,
 					getTotalPrice,
 					isOpenCartDetail,

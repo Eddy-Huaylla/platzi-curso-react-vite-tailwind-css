@@ -15,7 +15,7 @@ const Drawer = ( { title, children, isOpen, onClose, footer } ) => {
 
 			{
 				footer && (
-					<div className='flex px-6 py-4'>
+					<div className='flex flex-wrap px-6 py-4'>
 						{ footer }
 					</div>
 				)

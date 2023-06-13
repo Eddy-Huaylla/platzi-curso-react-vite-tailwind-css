@@ -1,5 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
+
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
+import { OrderContextProvider } from './contexts/OrderContext';
 
 import { Router } from './routers/Router';
 
@@ -11,14 +13,16 @@ import './App.css';
 function App () {
 	return (
 		<ShoppingCartProvider>
-			<BrowserRouter>
-				<header className='sticky top-0 shadow border-b bg-white flex justify-center z-10'>
-					<NavBar />
-				</header>
-				<Layout>
-					<Router />
-				</Layout>
-			</BrowserRouter>
+			<OrderContextProvider>
+				<BrowserRouter>
+					<header className='sticky top-0 shadow border-b bg-white flex justify-center z-10'>
+						<NavBar />
+					</header>
+					<Layout>
+						<Router />
+					</Layout>
+				</BrowserRouter>
+			</OrderContextProvider>
 		</ShoppingCartProvider>
 	);
 }
