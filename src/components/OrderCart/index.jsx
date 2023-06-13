@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 
-const OrderCart = ( { id, title, imageUrl, price, quantity } ) => {
+const OrderCart = ( { id, title, imageUrl, price, quantity, cart = true } ) => {
 	const { removeItem } = useContext( ShoppingCartContext );
 
 	return (
@@ -17,7 +17,10 @@ const OrderCart = ( { id, title, imageUrl, price, quantity } ) => {
 			</div>
 			<div className='flex items-center gap-2'>
 				<p className='text-lg font-medium'>s/{ price * quantity }</p>
-				<button onClick={ () => removeItem( id ) }>❌</button>
+
+				{
+					cart && <button onClick={ () => removeItem( id ) }>❌</button>
+				}
 			</div>
 		</div>
 	);
