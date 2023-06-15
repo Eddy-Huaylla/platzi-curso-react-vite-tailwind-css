@@ -17,7 +17,7 @@ const OrderCartTotal = () => {
 							<div className='font-medium text-2xl'>s/{ getTotalPrice() }</div>
 						</div>
 						<div className='flex justify-between items-center w-full'>
-							<Link to='my-order' className='bg-black text-white w-full py-2 hover:bg-black/90' onClick={ () => addOrder() }>
+							<Link to='my-order' className='bg-black text-white w-full py-2 text-center rounded-lg hover:bg-black/90' onClick={ () => addOrder() }>
 								Comprar
 							</Link>
 						</div>

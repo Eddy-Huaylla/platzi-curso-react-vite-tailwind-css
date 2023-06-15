@@ -1,11 +1,17 @@
 import React from 'react';
 import { useOrder } from '../../hooks/useOrder';
 import { OrderCart } from '../../components/OrderCart';
+import { Link, useParams } from 'react-router-dom';
 
 const MyOrder = () => {
 	const { orders } = useOrder();
+	const { id } = useParams();
 
-	console.log( orders );
+	const orderFilter = id
+		? orders.filter( order => {
+			return order.id === parseInt( id );
+		} )
+		: orders;
 
 	return (
 		<>
@@ -15,7 +21,11 @@ const MyOrder = () => {
 				}
 
 				{
-					orders.slice( -1 )[0]?.products.map( item =>
+					orders.length > 0 && <Link to='/my-orders'>⬅️ Atras</Link>
+				}
+
+				{
+					orderFilter.slice( -1 )[0]?.products.map( item =>
 						<OrderCart
 							key={ item.id }
 							id={ item.id }

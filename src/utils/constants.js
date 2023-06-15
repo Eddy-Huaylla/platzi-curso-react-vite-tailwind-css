@@ -33,12 +33,12 @@ export const NAV_CATEGORIES = [
 
 export const NAV_RIGHT = [
 	{
-		to: '/myorders',
+		to: '/my-orders',
 		text: 'My orders',
 		className: ''
 	},
 	{
-		to: '/myoccount',
+		to: '/my-account',
 		text: 'My occount',
 		className: ''
 	},

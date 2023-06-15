@@ -4,11 +4,12 @@ import { ShoppingCartContext } from '../contexts/ShoppingCartContext';
 
 const useOrder = () => {
 	const { orders, addOrder } = useContext( OrderContext );
-	const { cart, getTotalPrice, removeAll } = useContext( ShoppingCartContext );
+	const { cart, getTotalPrice, removeAll, closeCartDetail, setIsOpenCart } = useContext( ShoppingCartContext );
 
 	const add = () => {
 		if ( cart.length > 0 ) {
 			const order = {
+				id: orders.length + 1,
 				date: new Date().toLocaleString( 'es-PE', {
 					timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
 				} ),
@@ -18,6 +19,8 @@ const useOrder = () => {
 
 			addOrder( order );
 			removeAll();
+			closeCartDetail();
+			setIsOpenCart( false );
 		}
 	};
 

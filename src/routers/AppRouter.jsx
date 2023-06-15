@@ -23,6 +23,10 @@ const AppRouter = () => {
 				element: <MyOrder />
 			},
 			{
+				path: 'my-order/:id',
+				element: <MyOrder />
+			},
+			{
 				path: 'my-orders',
 				element: <MyOrders />
 			},
