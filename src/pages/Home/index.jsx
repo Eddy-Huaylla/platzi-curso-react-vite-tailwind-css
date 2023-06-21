@@ -4,11 +4,13 @@ import { getProducts } from '../../services/platzi';
 import { Drawer } from '../../components/Drawer';
 import { ProductDetail } from '../../components/ProductDetail';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
+import { useFilter } from '../../hooks/useFilter';
 
 const Home = () => {
 	const [ products, setProducts ] = useState( [] );
 	const [ error, setError ] = useState();
 	const { isOpenCartDetail, closeCartDetail } = useContext( ShoppingCartContext );
+	const { filter, setFilter, productsFilter } = useFilter( products );
 
 	useEffect( () => {
 		getProducts()
@@ -22,15 +24,26 @@ const Home = () => {
 
 	return (
 		<>
-			<section className='grid gap-4 grid-cols-4 w-full max-w-screen-2xl justify-items-center'>
-				{
-					error && <p className='px-3 rounded-lg bg-red-700 text-white font-medium text-center'>{ error }</p>
-				}
+			<div className='flex flex-col justify-center items-center'>
+				<input
+					type='search'
+					placeholder='Search product'
+					className='rounded-lg border-black w-80 p-4 mb-4'
+					value={ filter.search }
+					onChange={ ( e ) => setFilter( { ...filter, search: e.target.value } ) }
+				/>
 
-				{
-					products.map( product => <Card key={ product.id } product={ product } /> )
-				}
-			</section>
+				<section className='grid gap-4 grid-cols-4 w-full max-w-screen-2xl justify-items-center'>
+
+					{
+						error && <p className='px-3 rounded-lg bg-red-700 text-white font-medium text-center'>{ error }</p>
+					}
+
+					{
+						productsFilter.map( product => <Card key={ product.id } product={ product } /> )
+					}
+				</section>
+			</div>
 
 			<Drawer
 				title='Details'
