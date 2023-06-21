@@ -4,7 +4,7 @@ import { ShoppingCartContext } from '../contexts/ShoppingCartContext';
 
 const useOrder = () => {
 	const { orders, addOrder } = useContext( OrderContext );
-	const { cart, getTotalPrice, removeAll, closeCartDetail, setIsOpenCart } = useContext( ShoppingCartContext );
+	const { cart, getTotalPrice, removeAll, closeCartDetail, setIsOpenCart, getQuantityCart } = useContext( ShoppingCartContext );
 
 	const add = () => {
 		if ( cart.length > 0 ) {
@@ -14,6 +14,7 @@ const useOrder = () => {
 					timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
 				} ),
 				products: cart,
+				quantity: getQuantityCart(),
 				totalPrice: getTotalPrice()
 			};
 
