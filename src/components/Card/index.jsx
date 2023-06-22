@@ -13,7 +13,7 @@ const Card = ( { product } ) => {
 
 	return (
 		<div
-			className='flex flex-col rounded-lg overflow-hidden border border-gray-400 pb-2 cursor-pointer'
+			className='flex flex-col rounded-lg overflow-hidden border border-gray-400 pb-2 cursor-pointer w-full'
 			onClick={ () => openCartDetail( product ) }
 		>
 			<figure className='relative w-full'>

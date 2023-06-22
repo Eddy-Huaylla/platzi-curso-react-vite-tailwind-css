@@ -1,12 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import { Card } from '../../components/Card';
-import { getProducts } from '../../services/platzi';
 import { Drawer } from '../../components/Drawer';
 import { ProductDetail } from '../../components/ProductDetail';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
+
 import { useFilter } from '../../hooks/useFilter';
 
+import { getProducts } from '../../services/platzi';
+
 const Home = () => {
+	const { category } = useParams();
 	const [ products, setProducts ] = useState( [] );
 	const [ error, setError ] = useState();
 	const { isOpenCartDetail, closeCartDetail } = useContext( ShoppingCartContext );
@@ -21,6 +26,10 @@ const Home = () => {
 				setError( error );
 			} );
 	}, [] );
+
+	useEffect( () => {
+		setFilter( { ...filter, category: category === undefined ? '' : category } );
+	}, [ category ] );
 
 	return (
 		<>

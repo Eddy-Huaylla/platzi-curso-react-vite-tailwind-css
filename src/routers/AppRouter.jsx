@@ -35,6 +35,10 @@ const AppRouter = () => {
 				element: <SignIn />
 			},
 			{
+				path: '/:category',
+				element: <Home />
+			},
+			{
 				path: '*',
 				element: <NotFound />
 			}
